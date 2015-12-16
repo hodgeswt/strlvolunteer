@@ -44,7 +44,7 @@ class HelloWorld(object):
     			<h1>Incorrect password for """ + card + """
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
-    index.exposed = True
+    addHours.exposed = True
 
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
 cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', '5000')),})
