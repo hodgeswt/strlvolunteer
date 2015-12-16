@@ -1,13 +1,10 @@
 import cherrypy
 import os
+import pickle
 
-file = open("./static/db.txt")
-hours = file.read()
-file.close()
+hours = pickle.loads(open("./static/db.txt").read())
 
-file = open("./static/pwords.txt")
-passwords = file.read()
-file.close()
+passwords = pickle.loads(open("./static/pwords.txt").read())
 
 class HelloWorld(object):
     def index(self):
