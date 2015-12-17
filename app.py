@@ -102,7 +102,7 @@ class HelloWorld(object):
     			<body>
     				<h1>Hours for """ + card + """
     				<p>""" + all + """</p>
-    				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    				<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			</body>
     			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
@@ -124,7 +124,7 @@ class HelloWorld(object):
     			</head>
     			<body>
     				<h1>Incorrect password for """ + card + """
-    				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    				<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			</body>
     			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
@@ -156,7 +156,7 @@ class HelloWorld(object):
     			<body>
     				<h1>Hours volunteered for """ + card + """</h1>
     				<p>""" + all + """</p>
-    				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    				<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			</body>
     			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
@@ -177,7 +177,7 @@ class HelloWorld(object):
 					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
     			</head>
     			<h1>Incorrect password for """ + card + """
-    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
         		</footer>
@@ -207,7 +207,7 @@ class HelloWorld(object):
 					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
     			</head>
     			<h1>Added user """ + card + """</h1>
-    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
         		</footer>
@@ -228,7 +228,7 @@ class HelloWorld(object):
     			</head>
     			<h1>An Error occurred. See Below.</h1>
     			<p>Either: Your usernames and passwords were not the same <em>OR</em> you are already in the database.</p>
-    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
         		</footer>
