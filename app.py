@@ -102,7 +102,7 @@ class HelloWorld(object):
 					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
     			</head>
     			<body>
-    				<h1>Hours for """ + card + """
+    				<h1>Hours for """ + card + """</h1>
     				<p>""" + all + """</p>
     				<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
     			</body>
