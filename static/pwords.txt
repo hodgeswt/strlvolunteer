@@ -5,6 +5,6 @@ V1
 p2
 sS'21053000888788'
 p3
-S'Georgia113'
+Vstrider
 p4
 s.

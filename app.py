@@ -69,6 +69,22 @@ class HelloWorld(object):
         					</form>
         				</div>
         			</div>
+        			
+        			<div class="panel panel-default">
+        				<div class="panel-heading">
+        					<h1>Change password</h1>
+        					<p>Enter card #, current password, new password, and new password again.</p>
+        				</div>
+        				<div class="panel-body">
+        					<form method="get" action="changeUsername">
+        						<input type="text" placeholder="card number" name="card" />
+        						<input type="password" placeholder="current password" name="cpass" />
+        						<input type="password" placeholder="new password" name="npass1" />
+        						<input type="password" placeholder="new password" name="npass2" />
+        						<button type="submit">Change password</button>
+        					</form>
+        				</div>
+        			</div>
         		</body>
         		<footer style="position: absolute; left:0; bottom:0;; width:100%;">
         			Copyright 2015 Will T. Hodges. All Rights Reserved.
@@ -239,6 +255,58 @@ class HelloWorld(object):
         		</footer>
     		"""
     addUser.exposed = True
+    
+    @cherrypy.expose
+    def changeUsername(self, card, cpass, npass1, npass2):
+    	passwords = pickle.loads(open("./static/pwords.txt").read())
+    	hours = pickle.loads(open("./static/db.txt").read())
+    	
+    	if passwords[card] == cpass and npass1 == npass2:
+    		passwords[card] = npass1
+    		pickle.dump(passwords, open("./static/pwords.txt", "w"))
+    		return """
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
+    			<h1>Password successfully changed for """ + card + """</h1>
+    			<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
+    		"""
+    	else:
+    		return """
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
+    			<h1>An Error occurred. See Below.</h1>
+    			<p>Either: Your new password did not match in both fields <em>OR</em> your current password is incorrect.</p>
+    			<p>If you do not know your current password, email <a href=="mailto:hodges.wt@gmail.com">Will Hodges</a> and he can reset it for you.</p>
+    			<a href="http://strlvolunteerlogs.herokuapp.com/">Back to the main page</a>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
+    		"""
+	changeUsername.exposed = True
+    	
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
 cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', '5000')),})
 cherrypy.quickstart(HelloWorld())
