@@ -83,9 +83,11 @@ class HelloWorld(object):
     		hours[card][date] = hours[card].get(date, 0) + int(volhours)
     		pickle.dump(hours, open("./static/db.txt", "w"))
     		all = "<table border='1'>"
+    		total = 0
     		for key in sorted(hours[card]):
     			all = all + "<tr><td>" + key + "</td><td>" + str(hours[card][key]) + "</td></tr>"
-    		all = all + "</table>"
+    			total = total + hours[card][key]
+    		all = all + "<tr><td>Total hours:</td><td>" + str(total) + "</td></tr></table>"
     		return """
     			<head>
         			<!-- Latest compiled and minified CSS -->
@@ -137,9 +139,11 @@ class HelloWorld(object):
     	passwords = pickle.loads(open("./static/pwords.txt").read())
     	if passwords[card] == password:
     		all = "<table border='1'>"
+    		total = 0
     		for key in sorted(hours[card]):
     			all = all + "<tr><td>" + key + "</td><td>" + str(hours[card][key]) + "</td></tr>"
-    		all = all + "</table>"
+    			total = total + hours[card][key]
+    		all = all + "<tr><td>Total hours:</td><td>" + str(total) + "</td></tr></table>"
     		return """
     			<head>
         			<!-- Latest compiled and minified CSS -->
