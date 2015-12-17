@@ -69,6 +69,9 @@ class HelloWorld(object):
         				</div>
         			</div>
         		</body>
+        		<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
         	</html>
         """
     index.exposed = True
@@ -100,7 +103,10 @@ class HelloWorld(object):
     				<h1>Hours for """ + card + """
     				<p>""" + all + """</p>
     				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
-    			</body<
+    			</body>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
     		"""
     	else:
     		return """
@@ -120,6 +126,9 @@ class HelloWorld(object):
     				<h1>Incorrect password for """ + card + """
     				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     			</body>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
     		"""
     addHours.exposed = True
     
@@ -149,6 +158,9 @@ class HelloWorld(object):
     				<p>""" + all + """</p>
     				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     			</body>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
     		"""
     	else:
     		return """
@@ -166,6 +178,9 @@ class HelloWorld(object):
     			</head>
     			<h1>Incorrect password for """ + card + """
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
     		"""
     retrieveHours.exposed = True
     
@@ -193,6 +208,9 @@ class HelloWorld(object):
     			</head>
     			<h1>Added user """ + card + """</h1>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
     		"""
     	else:
     		return """
@@ -211,6 +229,9 @@ class HelloWorld(object):
     			<h1>An Error occurred. See Below.</h1>
     			<p>Either: Your usernames and passwords were not the same <em>OR</em> you are already in the database.</p>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<footer style="position: absolute; left:0; bottom:0;; width:100%;">
+        			Copyright 2015 Will T. Hodges. All Rights Reserved.
+        		</footer>
     		"""
     addUser.exposed = True
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
