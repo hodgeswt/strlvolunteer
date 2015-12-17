@@ -11,38 +11,63 @@ class HelloWorld(object):
         	<!DOCTYPE html>
         	<html>
         		<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         		</head>
         		<body>
-        			<h1>Add hours</h1>
-        			<p>Enter Card #, Password, and Hours. Click "Add Hours"</p>
+        			<div class="panel panel-default">
+        				<div class="panel-heading">
+        					<h1>Add hours</h1>
+        					<p>Enter Card #, Password, and Hours. Click "Add Hours"</p>
+        				</div>
+        				<div class="panel-body">
+        					<form method="get" action="addHours">
+        						<input type="text" placeholder="card number" name="card"></input>
+        						<input type="password" placeholder="password" name="password"></input>
+        						<input type="text" placeholder="MM/DD/YY" name="date"></input>
+        						<input type="number" placeholder="hours volunteered" name="volhours"></input>
+        						<button type="submit">Add Hours</button>
+        					</form>
+        				</div>
+        			</div>
         			
-        			<form method="get" action="addHours">
-        				<input type="text" placeholder="card number" name="card"></input>
-        				<input type="password" placeholder="password" name="password"></input>
-        				<input type="text" placeholder="MM/DD/YY" name="date"></input>
-        				<input type="number" placeholder="hours volunteered" name="volhours"></input>
-        				<button type="submit">Add Hours</button>
-        			</form>
+        			<div class="panel panel-default">
+        				<div class="panel-heading">
+        					<h1>Show Hours</h1>
+        					<p>Enter Card # and Password. Click "Retrieve Hours"</p>
+        				</div>
+        				<div class="panel-body">
+        					<form method="get" action="retrieveHours">
+        						<input type="text" placeholder="card number" name="card" />
+        						<input type="password" placeholder="password" name="password" />
+        						<button type="submit">Retrieve Hours</button>
+        					</form>
+        				</div>
+        			</div>
         			
-        			<h1>Show Hours</h1>
-        			<p>Enter Card # and Password. Click "Retrieve Hours"</p>
-        			
-        			<form method="get" action="retrieveHours">
-        				<input type="text" placeholder="card number" name="card" />
-        				<input type="password" placeholder="password" name="password" />
-        				<button type="submit">Retrieve Hours</button>
-        			</form>
-        			
-        			<h1>Add user</h1>
-        			<p>Enter card #, card #, password, and password. Click "Add User"</p>
-        			
-        			<form method="get" action="addUser">
-        				<input type="text" placeholder="card number" name="card" />
-        				<input type="text" placeholder="card number again" name="card2" />
-        				<input type="password" placeholder="password" name="password" />
-        				<input type="password" placeholder="password again" name="password2" />
-        				<button type="submit">Add User</button>
-        			</form>
+        			<div class="panel panel-default">
+        				<div class="panel-heading">
+        					<h1>Add user</h1>
+        					<p>Enter card #, card #, password, and password. Click "Add User"</p>
+        				</div>
+        				<div class="panel-body">
+        					<form method="get" action="addUser">
+        						<input type="text" placeholder="card number" name="card" />
+        						<input type="text" placeholder="card number again" name="card2" />
+        						<input type="password" placeholder="password" name="password" />
+        						<input type="password" placeholder="password again" name="password2" />
+        						<button type="submit">Add User</button>
+        					</form>
+        				</div>
+        			</div>
         		</body>
         	</html>
         """
@@ -59,14 +84,42 @@ class HelloWorld(object):
     			all = all + "<tr><td>" + key + "</td><td>" + str(hours[card][key]) + "</td></tr>"
     		all = all + "</table>"
     		return """
-    			<h1>Hours for """ + card + """
-    			<p>""" + all + """</p>
-    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
+    			<body>
+    				<h1>Hours for """ + card + """
+    				<p>""" + all + """</p>
+    				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			</body<
     		"""
     	else:
     		return """
-    			<h1>Incorrect password for """ + card + """
-    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
+    			<body>
+    				<h1>Incorrect password for """ + card + """
+    				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			</body>
     		"""
     addHours.exposed = True
     
@@ -79,12 +132,38 @@ class HelloWorld(object):
     			all = all + "<tr><td>" + key + "</td><td>" + str(hours[card][key]) + "</td></tr>"
     		all = all + "</table>"
     		return """
-    			<h1>Hours volunteered for """ + card + """</h1>
-    			<p>""" + all + """</p>
-    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
+    			<body>
+    				<h1>Hours volunteered for """ + card + """</h1>
+    				<p>""" + all + """</p>
+    				<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    			</body>
     		"""
     	else:
     		return """
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
     			<h1>Incorrect password for """ + card + """
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
@@ -99,11 +178,35 @@ class HelloWorld(object):
     		pickle.dump(hours, open("./static/db.txt", "w"))
     		pickle.dump(passwords, open("./static/pwords.txt", "w"))
     		return """
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
     			<h1>Added user """ + card + """</h1>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
     	else:
     		return """
+    			<head>
+        			<!-- Latest compiled and minified CSS -->
+					<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+					
+					<link rel="stylesheet" href="https://raw.githubusercontent.com/thomaspark/bootswatch/gh-pages/darkly/bootstrap.min.css">
+
+					<!-- jQuery library -->
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+					<!-- Latest compiled JavaScript -->
+					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
+    			</head>
     			<h1>Card Numbers and/or passwords did not match. Try again.</h1>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
