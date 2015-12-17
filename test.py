@@ -1,3 +1,3 @@
 import pickle
 
-pickle.dump({"21053000888788": "Georgia113"}, open("./static/pwords.txt", "w"))
+pickle.dump({"21053000888788": {}, "1": {}}, open("./static/db.txt", "w"))

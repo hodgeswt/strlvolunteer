@@ -170,9 +170,10 @@ class HelloWorld(object):
     retrieveHours.exposed = True
     
     def addUser(self, card, card2, password, password2):
-    	if card == card2 and password == password2:
-    		passwords = pickle.loads(open("./static/pwords.txt").read())
-    		hours = pickle.loads(open("./static/db.txt").read())
+    	passwords = pickle.loads(open("./static/pwords.txt").read())
+    	hours = pickle.loads(open("./static/db.txt").read())
+    	
+    	if card == card2 and password == password2 and (card not in hours):
     		passwords[card] = password
     		hours[card] = {}
     		pickle.dump(hours, open("./static/db.txt", "w"))
@@ -207,7 +208,8 @@ class HelloWorld(object):
 					<!-- Latest compiled JavaScript -->
 					<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>    			
     			</head>
-    			<h1>Card Numbers and/or passwords did not match. Try again.</h1>
+    			<h1>An Error occurred. See Below.</h1>
+    			<p>Either: Your usernames and passwords were not the same <em>OR</em> you are already in the database.</p>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
     addUser.exposed = True
