@@ -32,6 +32,17 @@ class HelloWorld(object):
         				<input type="password" placeholder="password" name="password" />
         				<button type="submit">Retrieve Hours</button>
         			</form>
+        			
+        			<h1>Add user</h1>
+        			<p>Enter card #, card #, password, and password. Click "Add User"</p>
+        			
+        			<form method="get" action="addUser">
+        				<input type="text" placeholder="card number" name="card" />
+        				<input type="text" placeholder="card number again" name="card2" />
+        				<input type="password" placeholder="password" name="password" />
+        				<input type="password" placeholder="password again" name="password2" />
+        				<button type="submit">Add User</button>
+        			</form>
         		</body>
         	</html>
         """
@@ -78,6 +89,25 @@ class HelloWorld(object):
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
     retrieveHours.exposed = True
+    
+    def addUser(self, card, card2, password, password2):
+    	if card == card2 and password == password2:
+    		passwords = pickle.loads(open("./static/pwords.txt").read())
+    		hours = pickle.loads(open("./static/db.txt").read())
+    		passwords[card] = password
+    		hours[card] = {}
+    		pickle.dump(hours, open("./static/db.txt", "w"))
+    		pickle.dump(passwords, open("./static/pwords.txt", "w"))
+    		return """
+    			<h1>Added user """ + card + """</h1>
+    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    		"""
+    	else:
+    		return """
+    			<h1>Card Numbers and/or passwords did not match. Try again.</h1>
+    			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
+    		"""
+    addUser.exposed = True
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
 cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', '5000')),})
 cherrypy.quickstart(HelloWorld())
