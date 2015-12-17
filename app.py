@@ -1,6 +1,7 @@
 import cherrypy
 import os
 import pickle
+import time
 
 hours = pickle.loads(open("./static/db.txt").read())
 passwords = pickle.loads(open("./static/pwords.txt").read())
@@ -18,6 +19,7 @@ class HelloWorld(object):
         			<form method="get" action="addHours">
         				<input type="text" placeholder="card number" name="card"></input>
         				<input type="password" placeholder="password" name="password"></input>
+        				<input type="text" placeholder="MM/DD/YY" name="date"></input>
         				<input type="number" placeholder="hours volunteered" name="volhours"></input>
         				<button type="submit">Add Hours</button>
         			</form>
@@ -35,15 +37,19 @@ class HelloWorld(object):
         """
     index.exposed = True
     
-    def addHours(self, card, password, volhours):
+    def addHours(self, card, password, date, volhours):
     	hours = pickle.loads(open("./static/db.txt").read())
     	passwords = pickle.loads(open("./static/pwords.txt").read())
     	if passwords[card] == password:
-    		hours[card] = hours[card] + int(volhours)
+    		hours[card][date] = hours[card].get(date, 0) + int(volhours)
     		pickle.dump(hours, open("./static/db.txt", "w"))
+    		all = "<table border='1'>"
+    		for key in hours[card]:
+    			all = all + "<tr><td>" + key + "</td><td>" + str(hours[card][key]) + "</td></tr>"
+    		all = all + "</table>"
     		return """
     			<h1>Hours for """ + card + """
-    			<p>""" + str(hours[card]) + """</p>
+    			<p>""" + all + """</p>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
     	else:
@@ -57,9 +63,13 @@ class HelloWorld(object):
     	hours = pickle.loads(open("./static/db.txt").read())
     	passwords = pickle.loads(open("./static/pwords.txt").read())
     	if passwords[card] == password:
+    		all = "<table border='1'>"
+    		for key in hours[card]:
+    			all = all + "<tr><td>" + key + "</td><td>" + str(hours[card][key]) + "</td></tr>"
+    		all = all + "</table>"
     		return """
     			<h1>Hours volunteered for """ + card + """</h1>
-    			<p>""" + str(hours[card]) + """</p>
+    			<p>""" + all + """</p>
     			<a href="http://volunteerlogon.herokuapp.com/">Back to the main page</a>
     		"""
     	else:
