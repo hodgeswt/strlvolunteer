@@ -27,11 +27,11 @@ class HelloWorld(object):
         			<div class="panel panel-default">
         				<div class="panel-heading">
         					<h1>Add hours</h1>
-        					<p>Enter Card #, Password, and Hours. Click "Add Hours"</p>
+        					<p>Enter username, Password, and Hours. Click "Add Hours"</p>
         				</div>
         				<div class="panel-body">
         					<form method="get" action="addHours">
-        						<input type="text" placeholder="card number" name="card"></input>
+        						<input type="text" placeholder="username" name="card"></input>
         						<input type="password" placeholder="password" name="password"></input>
         						<input type="text" placeholder="MM/DD/YY" name="date"></input>
         						<input type="number" placeholder="hours volunteered" name="volhours"></input>
@@ -43,11 +43,11 @@ class HelloWorld(object):
         			<div class="panel panel-default">
         				<div class="panel-heading">
         					<h1>Show Hours</h1>
-        					<p>Enter Card # and Password. Click "Retrieve Hours"</p>
+        					<p>Enter username and Password. Click "Retrieve Hours"</p>
         				</div>
         				<div class="panel-body">
         					<form method="get" action="retrieveHours">
-        						<input type="text" placeholder="card number" name="card" />
+        						<input type="text" placeholder="username" name="card" />
         						<input type="password" placeholder="password" name="password" />
         						<button type="submit">Retrieve Hours</button>
         					</form>
@@ -57,12 +57,12 @@ class HelloWorld(object):
         			<div class="panel panel-default">
         				<div class="panel-heading">
         					<h1>Add user</h1>
-        					<p>Enter card #, card #, password, and password. Click "Add User"</p>
+        					<p>Enter username, username, password, and password. Click "Add User"</p>
         				</div>
         				<div class="panel-body">
         					<form method="get" action="addUser">
-        						<input type="text" placeholder="card number" name="card" />
-        						<input type="text" placeholder="card number again" name="card2" />
+        						<input type="text" placeholder="username" name="card" />
+        						<input type="text" placeholder="username" name="card2" />
         						<input type="password" placeholder="password" name="password" />
         						<input type="password" placeholder="password again" name="password2" />
         						<button type="submit">Add User</button>
@@ -73,11 +73,11 @@ class HelloWorld(object):
         			<div class="panel panel-default">
         				<div class="panel-heading">
         					<h1>Change password</h1>
-        					<p>Enter card #, current password, new password, and new password again.</p>
+        					<p>Enter username, current password, new password, and new password again.</p>
         				</div>
         				<div class="panel-body">
         					<form method="get" action="changeUsername">
-        						<input type="text" placeholder="card number" name="card" />
+        						<input type="text" placeholder="username" name="card" />
         						<input type="password" placeholder="current password" name="cpass" />
         						<input type="password" placeholder="new password" name="npass1" />
         						<input type="password" placeholder="new password" name="npass2" />
