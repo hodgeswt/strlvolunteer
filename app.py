@@ -58,6 +58,7 @@ class HelloWorld(object):
         				<div class="panel-heading">
         					<h1>Add user</h1>
         					<p>Enter username, username, password, and password. Click "Add User"</p>
+        					<p>Username must be letters only. No numbers or special characters.</p>
         				</div>
         				<div class="panel-body">
         					<form method="get" action="addUser">
