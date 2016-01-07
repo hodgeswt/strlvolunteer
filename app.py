@@ -6,6 +6,7 @@ import time
 hours = pickle.loads(open("./static/db.txt").read())
 passwords = pickle.loads(open("./static/pwords.txt").read())
 class HelloWorld(object):
+	
     def index(self):
         return """
         	<!DOCTYPE html>
@@ -257,6 +258,10 @@ class HelloWorld(object):
     		"""
     addUser.exposed = True
     
+    def data(self):
+		return open("./static/pwords.txt").read()
+    data.exposed = True
+    
     @cherrypy.expose
     def changeUsername(self, card, cpass, npass1, npass2):
     	passwords = pickle.loads(open("./static/pwords.txt").read())
@@ -307,6 +312,7 @@ class HelloWorld(object):
         		</footer>
     		"""
 	changeUsername.exposed = True
+
     	
 cherrypy.config.update({'server.socket_host': '0.0.0.0',})
 cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', '5000')),})
