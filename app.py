@@ -214,8 +214,13 @@ class HelloWorld(object):
     	if card == card2 and password == password2 and (card not in hours):
     		passwords[card] = password
     		hours[card] = {}
-    		pickle.dump(hours, open("./static/db.txt", "w"))
-    		pickle.dump(passwords, open("./static/pwords.txt", "w"))
+    		file = open("./static/db.txt", "w")
+    		pickle.dump(hours, file)
+    		file.close()
+    		
+    		file = open("./static/pwords.txt", "w")
+    		pickle.dump(passwords, file)
+    		file.close()
     		return """
     			<head>
         			<!-- Latest compiled and minified CSS -->
@@ -258,9 +263,13 @@ class HelloWorld(object):
     		"""
     addUser.exposed = True
     
-    def data(self):
+    def pwords(self):
 		return open("./static/pwords.txt").read()
-    data.exposed = True
+    pwords.exposed = True
+    
+    def db(self):
+		return open("./static/db.txt").read()
+    db.exposed = True
     
     @cherrypy.expose
     def changeUsername(self, card, cpass, npass1, npass2):
